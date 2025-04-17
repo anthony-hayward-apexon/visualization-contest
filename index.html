@@ -1,23 +1,38 @@
-// Simple version without JSX to test deployment
-document.addEventListener('DOMContentLoaded', function() {
-  const root = document.getElementById('root');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualization Contest Voting App</title>
   
-  // Create a simple interface
-  root.innerHTML = `
-    <div class="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md">
-      <h2 class="text-xl font-bold mb-4">Visualization Contest Voting App</h2>
-      <p class="mb-4">The application is loading...</p>
-      <p>For admin access, add <code>?admin=setupadmin</code> to the URL.</p>
-      <div class="mt-4">
-        <button id="adminButton" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-          Go to Admin Dashboard
-        </button>
-      </div>
-    </div>
-  `;
+  <!-- React and ReactDOM -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   
-  // Add basic functionality
-  document.getElementById('adminButton').addEventListener('click', function() {
-    window.location.href = window.location.href.split('?')[0] + '?admin=setupadmin';
-  });
-});
+  <style>
+    .loading-spinner {
+      border-top-color: #3498db;
+      -webkit-animation: spinner 1.5s linear infinite;
+      animation: spinner 1.5s linear infinite;
+    }
+    
+    @-webkit-keyframes spinner {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spinner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div id="root"></div>
+  
+  <!-- Important: Script tag should be at the end of the body -->
+  <script src="app.js"></script>
+</body>
+</html>
